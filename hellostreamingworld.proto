@@ -34,6 +34,6 @@ message HelloRequest {
 
 // A response message containing a greeting
 message HelloReply {
-  string message = 1;
+  bytes message = 1;
 }
 

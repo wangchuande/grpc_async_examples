@@ -66,3 +66,35 @@ target_link_libraries(async_streaming_server_queue_to_front
         hellostreamingworld
         gRPC::grpc++_unsecure
         protobuf::libprotobuf)
+
+add_executable(async_streaming_server_with_large_message
+        async_streaming_server_with_large_message
+        )
+target_link_libraries(async_streaming_server_with_large_message
+        hellostreamingworld
+        gRPC::grpc++_unsecure
+        protobuf::libprotobuf)
+
+add_executable(async_streaming_server_with_separate_thread_to_write
+        async_streaming_server_with_separate_thread_to_write.cc
+        )
+target_link_libraries(async_streaming_server_with_separate_thread_to_write
+        hellostreamingworld
+        gRPC::grpc++_unsecure
+        protobuf::libprotobuf)
+
+add_executable(async_streaming_server_with_separate_queue
+        async_streaming_server_with_separate_queue.cc
+        )
+target_link_libraries(async_streaming_server_with_separate_queue
+        hellostreamingworld
+        gRPC::grpc++_unsecure
+        protobuf::libprotobuf)
+
+add_executable(async_streaming_server_with_separate_queue_and_thread
+        async_streaming_server_with_separate_queue_and_thread.cc
+        )
+target_link_libraries(async_streaming_server_with_separate_queue_and_thread
+        hellostreamingworld
+        gRPC::grpc++_unsecure
+        protobuf::libprotobuf)
