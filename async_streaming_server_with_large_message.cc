@@ -59,12 +59,12 @@ private:
         status_ = PROCESS;
         service_->RequestsayHello(&ctx_, &request_, &responder_, call_cq, call_cq, this);
       } else if (status_ == PROCESS) {
-        std::cout << "Client being processed:  " << request_.name() << "; client_id: " << client_id_ << std::endl;
+        std::cout << "===========Client being processed:  " << request_.name() << "; client_id: " << client_id_ << std::endl;
         if (times_ == 0) {
           new CallData(service_, call_cq, client_id_ + 1);
         }
 
-        if (times_++ >= 20) {
+        if (times_++ >= 6) {
           status_ = FINISH;
           responder_.Finish(Status::OK, this);
         } else {
@@ -77,7 +77,9 @@ private:
 
           std::string stu(3 * 1024 * 1024, 'a');
           reply_.set_message(stu);
+          std::cout << "==================before Write:" << request_.name() << "; client_id: " << client_id_ << std::endl;
           responder_.Write(reply_, this);
+          std::cout << "==================after Write:" << request_.name() << "; client_id: " << client_id_ << std::endl;
         }
       } else {
         std::cout << "delete call_data: " << client_id_ << std::endl;

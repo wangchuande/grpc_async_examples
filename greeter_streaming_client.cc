@@ -54,7 +54,7 @@ public:
         HelloReply reply;
         while (reader->Read(&reply)) 
         {
-            std::cout << "Got reply: " << reply.message() << std::endl;
+            std::cout << "Got reply" << std::endl;
         }
 
         Status status = reader->Finish();
